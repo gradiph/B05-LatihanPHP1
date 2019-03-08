@@ -7,16 +7,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="<?php echo base_url ("assets/vendor/Bootstrap v4.1.1/css/bootstrap.min.css") ?>">
-		<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
-		<!-- Css -->
-		<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+	
 		<!-- font Awesome -->
 		<link rel="stylesheet" href="<?php echo base_url ("assets/vendor/fontawesome-free-5.5.0-web/css/fontawesome.min.css") ?>">
 	</head>
 	<body>
 		
 		<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
@@ -36,26 +34,28 @@
 		</nav>
 		
 		<!-- Isi -->
-		<div class="container" style="width: 500px; margin-top: 50px;">
+		<div class="container" style="width: 700px; margin-top: 50px;">
 				<table class="table">
 					<h1 class="text-center">Penjualan</h1>
 					<br>
 					<form action="<?php echo base_url(); ?>index.php/Penjualan/masuk_data" method="post">
 						<tr>
-							<th>Tanggal</th>
-								<td><input type="date" name="tanggal" class="form-control" value="<?php echo $this->session->userdata('tanggal'); ?>"></td>
+							<th><label for="input-nama">Tanggal</label></th>
+								<td><input type="datetime-local" id="input-nama" name="tanggal" class="form-control" value="<?php echo $this->session->userdata('tanggal', date('Y-m-d H:i')); ?>"></td>
+							<th><label for="input-detik">Detik</label></th>
+								<td><input type="number" id="input-detik" name="detik" min="0" max="59" class="form-control" placeholder="Isi detik" value="<?php echo $this->session->userdata('detik'); ?>"></td>
 						</tr>
 						<tr>
-							<th>Nama Barang</th>
-								<td><input type="text" name="barang" class="form-control" required autofocus maxlength="20"></td>
+							<th><label for="input-barang">Nama Barang</label></th>
+								<td><input type="text" id="input-barang" name="barang" class="form-control" required autofocus maxlength="20"></td>
 						</tr>
 						<tr>
-							<th>Kuantitas</th>
-								<td><input type="text" name="kuantitas" class="form-control" required autofocus maxlength="20"></td>
+							<th><label for="input-kuantitas">Kuantitas</label></th>
+								<td><input type="number" name="kuantitas" id="input-kuantitas" class="form-control" required autofocus maxlength="20"></td>
 						</tr>
 						<tr>
-							<th>Harga Barang</th>
-								<td><input type="text" name="harga_barang" class="form-control" required autofocus maxlength="20"></td>
+							<th><label for="input-harga-barang">Harga Barang</label></th>
+								<td><input type="number" name="harga_barang" id="input-harga-barang" class="form-control" required autofocus maxlength="20"></td>
 						</tr>
 						<tr>
 							<td><button type="submit" name="simpan" class="btn btn-primary">Submit</button></td>

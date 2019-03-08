@@ -22,12 +22,18 @@
 		$this->db->insert($this->penjualan, $this);
 	}
 
+	public function baru_tabel_rekap_penjualan()
+	{
+		$this->db->select("tanggal, barang, kuantitas, harga_barang");
+		$this->db->where('tanggal', $this->input->get('tanggal'));
+		$this->db->order_by("tanggal, barang, kuantitas, harga_barang");
+
+		$panggil_data = $this->db->get('penjualan');
+		return $panggil_data->result();
 	}
 
-	
 
 
-
-
+	}
 
  ?>

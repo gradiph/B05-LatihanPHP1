@@ -39,10 +39,10 @@
 		<div class="container text-center py-3" style="width: 500px; margin-top: 50px;">
 		<table class="table text-al" style="width: 500px;">
 			<h2 class="text-center py-3">Rekap Penjualan</h2>
-			<form action="<?php echo base_url(); ?>index.php/Penjualan/tabel_rekap_penjualan" method="get">
+			<form action="<?php echo base_url(); ?>index.php/Penjualan/new_tbl_rekap_penjualan" method="get">
 			<tr>
-				<th>Tanggal</th>
-				<td><input type="date" name="tanggal" value="<?php echo $this->session->userdata('tanggal');?>" class="form-control"></td>
+				<th><label for="input-tanggal">Tanggal</th>
+				<td><input type="date" name="tanggal" id="input-tanggal" value="<?php echo $this->session->userdata('tanggal');?>" class="form-control"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="simpan" class="btn btn-primary"></td>

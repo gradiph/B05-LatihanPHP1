@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2019 at 04:37 AM
+-- Generation Time: Mar 08, 2019 at 03:33 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `penjualan` (
   `id` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` datetime NOT NULL,
   `barang` varchar(50) NOT NULL,
   `kuantitas` int(50) NOT NULL,
   `harga_barang` double NOT NULL
@@ -41,15 +41,10 @@ CREATE TABLE `penjualan` (
 --
 
 INSERT INTO `penjualan` (`id`, `tanggal`, `barang`, `kuantitas`, `harga_barang`) VALUES
-(7, '2019-01-15', 'cpu', 21, 21.5),
-(8, '2019-01-15', 'cpu', 28, 78.96),
-(9, '2019-01-15', 'komputer', 58, 540),
-(10, '2019-01-25', 'cd rom', 26, 230),
-(11, '2019-01-25', 'mouse', 43, 150),
-(12, '2019-01-26', 'handphone', 75, 5.85),
-(13, '2019-01-26', 'headset', 30, 75),
-(14, '2019-01-26', 'Wifi', 450, 375),
-(15, '2019-01-26', 'Kabel Terminal', 37, 25);
+(32, '2019-03-03 01:22:07', 'HP', 450, 15000),
+(33, '2019-03-02 01:22:10', 'komputer', 34, 100),
+(34, '2019-03-03 16:11:10', 'laptop', 66, 456),
+(35, '2019-03-05 12:22:05', 'Sepatu', 33, 449);
 
 --
 -- Indexes for dumped tables
@@ -69,7 +64,7 @@ ALTER TABLE `penjualan`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

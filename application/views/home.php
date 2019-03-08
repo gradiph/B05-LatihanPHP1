@@ -39,6 +39,19 @@
 		 <div class="container" style="width: 500px; margin-top: 50px;">
 			<h1 class="text-center">Welcome</h1>
 		</div> 
+
+		<!-- beritahu -->
+		<div class="text-center">
+			
+			  <?php
+			  if (!empty($this->session->flashdata('pesan_input_data_berhasil'))) {
+			   	?>
+			   	<div class="alert alert-primary" role="alert">
+			   		<?php echo $this->session->flashdata('pesan_input_data_berhasil'); ?>
+			   		</div>
+			   <?php } ?>
+							
+		 </div>
 		
 		
 		
