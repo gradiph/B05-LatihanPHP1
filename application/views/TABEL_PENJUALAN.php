@@ -53,7 +53,7 @@
 					$harga_barang2 = 0;
 					$total_harga = 0;
 					$no = 1;
-						foreach ($barang->result() as $key => $row) {
+						foreach ($barang as $key => $row) {
 							?>
 
 							<tr>
@@ -61,8 +61,8 @@
 								<th><?php echo $row->tanggal; ?></th>
 								<th><?php echo $row->barang; ?></th>
 								<th><?php echo $row->kuantitas; ?></th>
-								<th><?php echo $row->harga_barang; ?></th>
-								<th><?php echo $row->total_harga; ?></th>
+								<th style="text-align: right;"><?php echo number_format($row->harga_barang); ?></th>
+								<th style="text-align: right;"><?php echo number_format($row->total_harga); ?></th>
 							</tr>
 
 							<?php 
@@ -76,7 +76,7 @@
 						<!-- <td></td>
 						<td></td>
 						<td><<?php echo $sum_jumlah->jumlah; ?></td> -->
-						<td><?php echo $harga_barang2;  ?></td>
+						<td style="text-align: right;"><?php echo number_format($harga_barang2);  ?></td>
 					</tr>
 				</table>
 

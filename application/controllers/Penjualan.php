@@ -93,7 +93,7 @@ class Penjualan extends CI_Controller {
 		$data['title'] = "barang";
 		$this->load->model('Penjualan_model');
 
-		$data['barang'] = $this->Penjualan_model->M_TABEL();
+		$data['barang'] = $this->Penjualan_model->M_TABEL($data['tanggal']);
 
 		$data['sum_jumlah'] = $this->Penjualan_model->get_sum();
 
