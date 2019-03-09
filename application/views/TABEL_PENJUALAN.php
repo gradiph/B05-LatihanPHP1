@@ -2,14 +2,13 @@
 <html>
 	<head>
 		<title>Rekap Penjualan</title>
+
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="<?php echo base_url ("assets/vendor/Bootstrap v4.1.1/css/bootstrap.min.css") ?>">
-		<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
-		<!-- Css -->
-		<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+	
 		<!-- font Awesome -->
 		<link rel="stylesheet" href="<?php echo base_url ("assets/vendor/fontawesome-free-5.5.0-web/css/fontawesome.min.css") ?>">
 	</head>
@@ -34,24 +33,65 @@
 				</ul>
 			</div>
 		</nav>
-		
-		<!-- Isi -->
-		<div class="container text-center py-3" style="width: 500px; margin-top: 50px;">
-		<table class="table text-al" style="width: 500px;">
-			<h2 class="text-center py-3">Rekap Penjualan</h2>
-			<form action="<?php echo base_url(); ?>index.php/Penjualan/TABEL_PENJUALAN" method="get">
-			<tr>
-				<th><label for="input-tanggal">Tanggal</th>
-				<td><input type="date" name="tanggal" id="input-tanggal" value="<?php echo $this->session->userdata('tanggal');?>" class="form-control"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="simpan" class="btn btn-primary"></td>
-			</tr>
-			</form>
-		</table>
+
+	<div class="container">
+		<h2 class="text-center" style="text-align: center; margin-top: 50px;">Rekap Penjualan</h2>
+		<h3 class="text-center" style="text-align: center;">Tanggal : <?php echo $tanggal; ?></h3>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<table class="table table-bordered table-hover" border="1">
+					<tr>
+						<th>No</th>
+						<th>Tanggal</th>
+						<th>Barang</th>
+						<th>Kuantitas</th>
+						<th>Harga barang</th>
+						<th>Sub Total</th>
+					</tr>
+
+					<?php 
+					$harga_barang2 = 0;
+					$total_harga = 0;
+					$no = 1;
+						foreach ($barang->result() as $key => $row) {
+							?>
+
+							<tr>
+								<th><?php echo $no++; ?></th>
+								<th><?php echo $row->tanggal; ?></th>
+								<th><?php echo $row->barang; ?></th>
+								<th><?php echo $row->kuantitas; ?></th>
+								<th><?php echo $row->harga_barang; ?></th>
+								<th><?php echo $row->total_harga; ?></th>
+							</tr>
+
+							<?php 
+							//utk grand total
+							$harga_barang2 += $row->total_harga;
+						}
+						
+					 ?>
+					<tr style="font-weight: bold;">
+						<td colspan="5" class="text-left">Grandtotal Harga</td>
+						<!-- <td></td>
+						<td></td>
+						<td><<?php echo $sum_jumlah->jumlah; ?></td> -->
+						<td><?php echo $harga_barang2;  ?></td>
+					</tr>
+				</table>
+
+				<div class="container">
+					<h4 style="text-align: left; color: black; width: 1300px; margin-top: 50px;">SUB TOTAL = Kuantitas * Harga Barang <br> GRAND TOTAL = Hasil + Seluruh Sub Total</h4>
+				</div>
+			
+			</div>
 		</div>
+	</div>
 		
 		
+		
+
+
 		<!-- Javascript -->
 		<script src="<?php echo base_url ("assets/vendor/jQuery 3.3.1/jquery.min.js") ?>"></script>
 		<!-- Jquery -->

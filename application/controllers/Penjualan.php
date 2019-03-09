@@ -37,6 +37,9 @@ class Penjualan extends CI_Controller {
 
 	public function rekap_penjualan()
 	{
+		// $data=array('tanggal' => $this->input->get('tanggal'));
+		// $this->session->set_userdata('tanggal', $data['tanggal']);
+
 		$this->load->view('rekap_penjualan');
 	}
 
@@ -82,18 +85,19 @@ class Penjualan extends CI_Controller {
 
 	}
 
-	//Coba cara 2
-	public function new_tbl_rekap_penjualan()
+	public function TABEL_PENJUALAN()
 	{
+		$data['tanggal']=$this->input->get('tanggal');
 
-		$data=array('tanggal' => $this->input->get('tanggal'));
+		//PROSES AMBIL DATA
+		$data['title'] = "barang";
+		$this->load->model('Penjualan_model');
 
-		$this->session->set_userdata('tanggal',$data['tanggal']);
+		$data['barang'] = $this->Penjualan_model->M_TABEL();
 
-		//ambil data jenis
-		$data['panggil_data'] = $this->Penjualan_model->baru_tabel_rekap_penjualan();
+		$data['sum_jumlah'] = $this->Penjualan_model->get_sum();
 
-		$this->load->view('new_tbl_rekap_penjualan',$data);
+		$this->load->view('TABEL_PENJUALAN',$data);
 	}
 
 }

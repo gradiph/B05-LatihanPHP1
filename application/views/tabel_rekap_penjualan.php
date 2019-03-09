@@ -47,7 +47,7 @@
 			echo $ganjil;
 			?>
 		</h2>
-		<h3 style="text-align: center;">Tanggal : <?php echo $tanggal; ?></h3>
+		<!-- <h3 style="text-align: center;">Tanggal : <?php echo $tanggal; ?></h3> -->
 		<?php
 			$host = mysqli_connect("localhost","root","");
 			$db = mysqli_select_db($host,"tbl_penjualan");

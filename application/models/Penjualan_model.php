@@ -32,8 +32,29 @@
 		return $panggil_data->result();
 	}
 
+	public function M_TABEL()
+	{
+		$sql = "SELECT tanggal, barang, kuantitas, harga_barang, (kuantitas * harga_barang) as total_harga FROM penjualan ORDER BY id";
 
+		// $this->db->select('tanggal, barang, kuantitas, harga_barang, (kuantitas * harga_barang) as total_harga');
+		// $this->db->from('penjualan');
+		// $this->db->order_by('id', DESC);
 
+		$this->db->where('tanggal', $this->input->get('tanggal'));
+		return $this->db->query($sql);
+
+		
 	}
+
+	public function get_sum()
+	{
+		$this->db->select_sum('harga_barang','jumlah');
+		$this->db->from('penjualan');
+		return $this->db->get('')->row();
+	}
+
+
+
+}
 
  ?>
