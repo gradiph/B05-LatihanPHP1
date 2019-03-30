@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2019 at 03:33 AM
+-- Generation Time: Mar 30, 2019 at 08:06 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -33,7 +33,7 @@ CREATE TABLE `penjualan` (
   `tanggal` datetime NOT NULL,
   `barang` varchar(50) NOT NULL,
   `kuantitas` int(50) NOT NULL,
-  `harga_barang` double NOT NULL
+  `harga_barang` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -44,7 +44,13 @@ INSERT INTO `penjualan` (`id`, `tanggal`, `barang`, `kuantitas`, `harga_barang`)
 (32, '2019-03-03 01:22:07', 'HP', 450, 15000),
 (33, '2019-03-02 01:22:10', 'komputer', 34, 100),
 (34, '2019-03-03 16:11:10', 'laptop', 66, 456),
-(35, '2019-03-05 12:22:05', 'Sepatu', 33, 449);
+(35, '2019-03-05 12:22:05', 'Sepatu', 33, 449),
+(36, '2019-03-09 14:32:20', 'Motor', 25, 400),
+(37, '2019-03-09 04:41:20', 'Mobil', 9, 90),
+(38, '2019-03-13 09:02:15', 'Motor', 13, 60),
+(39, '2019-03-18 01:33:46', 'Gps', 31, 55),
+(42, '2019-03-18 16:34:30', 'Helm', 31, 44),
+(43, '2019-03-30 13:13:06', 'Speaker', 13, 55);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +70,7 @@ ALTER TABLE `penjualan`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

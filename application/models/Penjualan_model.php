@@ -32,17 +32,14 @@
 		return $panggil_data->result();
 	}
 
-	public function M_TABEL($tanggal)
+	public function M_TABEL($where)
 	{
-		// $sql = "SELECT tanggal, barang, kuantitas, harga_barang, (kuantitas * harga_barang) as total_harga FROM penjualan ORDER BY id";
 
 		 $this->db->select('tanggal, barang, kuantitas, harga_barang, (kuantitas * harga_barang) as total_harga');
-
-		// $this->db->where('tanggal', $this->input->get('tanggal'));
-  		//$query = $this->db->get('penjualan');
-  		// return $this->db->query($sql);
-
-		$this->db->where('date(tanggal)', $tanggal);
+		
+		// $this->db->where('date(tanggal) >=', $tanggal_satuan);
+		$this->db->where($where);
+		
 		$this->db->order_by('id');
 		$data=$this->db->get('penjualan');
 		return $data->result();

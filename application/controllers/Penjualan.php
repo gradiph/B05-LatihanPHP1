@@ -28,7 +28,7 @@ class Penjualan extends CI_Controller {
 	{
 		if(empty($this->session->userdata('tanggal')))
 		{
-			$this->session->set_userdata('tanggal', date('Y-m-d H:i'));
+			$this->session->set_userdata('tanggal', date('Y-m-dTH:i'));
 			$this->session->set_userdata('detik', date('s'));
 		}
 
@@ -87,17 +87,35 @@ class Penjualan extends CI_Controller {
 
 	public function TABEL_PENJUALAN()
 	{
-		$data['tanggal']=$this->input->get('tanggal');
+		$data['tanggal']=date_format(date_create($this->input->get('tanggal')),"Y-m-d");
+		$data['tanggal_akhir'] = date_format(date_create($this->input->get('tanggal_akhir')),"Y-m-d");
+		$data['tanggal_satuan'] = date_format(date_create($this->input->get('tanggal_satuan')),"Y-m-d");
 
 		//PROSES AMBIL DATA
 		$data['title'] = "barang";
 		$this->load->model('Penjualan_model');
+		if($data['tanggal']==$data['tanggal_akhir'])
+		{
+			//utk merubah value ke if
+			$data['tanggal']='0000-00-00';
+		}
+		//menentukan opsi satuan atau rentang
+		if($data['tanggal']=="0000-00-00"){
+			$where=array('date(tanggal)'=>$data['tanggal_satuan']);
+			$data['barang'] = $this->Penjualan_model->M_TABEL($where);	
+		}else{
+			$where=array('date(tanggal)>='=> $data['tanggal'],'date(tanggal) <= '=> $data['tanggal_akhir']);
+			$data['barang'] = $this->Penjualan_model->M_TABEL($where);
+		}
 
-		$data['barang'] = $this->Penjualan_model->M_TABEL($data['tanggal']);
+		// //modifikasi ines
+		// $data['barang'] = $this->Penjualan_model->tanggal_satuan($data['tanggal_satuan']);
 
 		$data['sum_jumlah'] = $this->Penjualan_model->get_sum();
 
 		$this->load->view('TABEL_PENJUALAN',$data);
+		
+		 
 	}
 
 }

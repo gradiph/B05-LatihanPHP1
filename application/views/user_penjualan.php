@@ -41,7 +41,7 @@
 					<form action="<?php echo base_url(); ?>index.php/Penjualan/masuk_data" method="post">
 						<tr>
 							<th><label for="input-nama">Tanggal</label></th>
-								<td><input type="datetime-local" id="input-nama" name="tanggal" class="form-control" value="<?php echo $this->session->userdata('tanggal', date('Y-m-d H:i')); ?>"></td>
+								<td><input type="datetime-local" id="input-nama" name="tanggal" class="form-control" value="<?php echo $this->session->userdata('tanggal', date('Y-m-dTH:i')); ?>"></td>
 							<th><label for="input-detik">Detik</label></th>
 								<td><input type="number" id="input-detik" name="detik" min="0" max="59" class="form-control" placeholder="Isi detik" value="<?php echo $this->session->userdata('detik'); ?>"></td>
 						</tr>

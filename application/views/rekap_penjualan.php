@@ -37,12 +37,22 @@
 		
 		<!-- Isi -->
 		<div class="container text-center py-3" style="width: 500px; margin-top: 50px;">
-		<table class="table text-al" style="width: 500px;">
+		<table class="table" style="width: 500px;">
+			<caption class="text-dark" style="font-weight: bold;">Input Tanggal Rentang Waktu Tertentu</caption>
 			<h2 class="text-center py-3">Rekap Penjualan</h2>
 			<form action="<?php echo base_url(); ?>index.php/Penjualan/TABEL_PENJUALAN" method="get">
 			<tr>
+				<th><label for="input_tanggal_satuan">Tanggal - Satuan</label></th>
+					<td><input type="date" name="tanggal_satuan" id="input_tanggal_satuan" class="form-control" value=""></td>
+
+			</tr>
+			
+			<tr>
 				<th><label for="input-tanggal">Tanggal</th>
-				<td><input type="date" name="tanggal" id="input-tanggal" value="<?php echo $this->session->userdata('tanggal');?>" class="form-control"></td>
+				<td><input type="date" name="tanggal" id="input-tanggal" value="0000-00-00" class="form-control"></td>
+				<th class="text-dark" style="font-weight: bold;">-</th>
+				<th><label for="tanggal_akhir">Tanggal Akhir</th>
+				<th><input type="date" name="tanggal_akhir" id="tanggal_akhir" class="form-control" value="0000-00-00"></th>
 			</tr>
 			<tr>
 				<td><input type="submit" name="simpan" class="btn btn-primary"></td>
